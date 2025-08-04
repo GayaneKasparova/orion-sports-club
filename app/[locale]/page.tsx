@@ -6,7 +6,7 @@ import About from "@/components/About";
 import Trainers from "@/components/Trainers";
 import Packages from "@/components/Packages";
 
-export default async function Page({params}: {
+export default async function HomePage({params}: {
     params: Promise<{ locale: Locale }>
 }) {
     const {locale} = await params;
