@@ -19,14 +19,14 @@ const LocaleSwitcher = ({current}: { current: Locale }) => {
     return (
         <DropdownMenu>
             <DropdownMenuTrigger asChild>
-                <Button variant="ghost" size="sm" className="flex items-center space-x-2">
+                <Button variant="ghost" size="sm" className="flex items-center space-x-2 cursor-pointer">
                     <Globe className="h-4 w-4" />
                     <span className="hidden sm:inline">{current.toUpperCase()}</span>
                 </Button>
             </DropdownMenuTrigger>
             <DropdownMenuContent align="end" className="w-40">
                 {languages.map((lang) => (
-                    <DropdownMenuItem key={lang.code} className={`flex items-center space-x-2 ${lang.code === current ? 'font-bold underline' : ''}`} onClick={() => handleSwitch(lang.code as Locale)}>
+                    <DropdownMenuItem key={lang.code} className={`flex items-center space-x-2 cursor-pointer ${lang.code === current ? 'font-bold underline' : ''}`} onClick={() => handleSwitch(lang.code as Locale)}>
                         <span>{lang.flag}</span>
                         <span>{lang.label}</span>
                     </DropdownMenuItem>

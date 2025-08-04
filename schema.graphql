@@ -423,55 +423,30 @@ type ColorField {
   red: IntType!
 }
 
-input ContactModelFilter {
-  _createdAt: CreatedAtFilter
-  createdAt: CreatedAtFilter
-  id: ItemIdFilter
-  _firstPublishedAt: PublishedAtFilter
-  _publicationScheduledAt: PublishedAtFilter
-  _unpublishingScheduledAt: PublishedAtFilter
-  _publishedAt: PublishedAtFilter
-  _status: StatusFilter
-  _updatedAt: UpdatedAtFilter
-  updatedAt: UpdatedAtFilter
-  _isValid: BooleanFilter
-  OR: [ContactModelFilter]
-  AND: [ContactModelFilter]
-}
-
-enum ContactModelOrderBy {
-  _createdAt_ASC
-  _createdAt_DESC
-  createdAt_ASC
-  createdAt_DESC
-  id_ASC
-  id_DESC
-  _firstPublishedAt_ASC
-  _firstPublishedAt_DESC
-  _publicationScheduledAt_ASC
-  _publicationScheduledAt_DESC
-  _unpublishingScheduledAt_ASC
-  _unpublishingScheduledAt_DESC
-  _publishedAt_ASC
-  _publishedAt_DESC
-  _status_ASC
-  _status_DESC
-  _updatedAt_ASC
-  _updatedAt_DESC
-  updatedAt_ASC
-  updatedAt_DESC
-  _isValid_ASC
-  _isValid_DESC
-}
-
-"""Record of type Contacts (contact)"""
+"""Record of type Contact Information (contact)"""
 type ContactRecord implements RecordInterface {
+  _allAddressLocales(
+    """
+    If you want to fallback to a default translation when a translation has not been found
+    """
+    fallbackLocales: [SiteLocale!]
+  ): [StringMultiLocaleField!]
+  _allWorkingHoursLocales(
+    """Process content as markdown"""
+    markdown: Boolean
+
+    """
+    If you want to fallback to a default translation when a translation has not been found
+    """
+    fallbackLocales: [SiteLocale!]
+  ): [StringMultiLocaleField!]
   _createdAt: DateTime!
 
   """Editing URL"""
   _editingUrl: String
   _firstPublishedAt: DateTime!
   _isValid: BooleanType!
+  _locales: [SiteLocale!]!
   _modelApiKey: String!
   _publicationScheduledAt: DateTime
   _publishedAt: DateTime!
@@ -484,9 +459,38 @@ type ContactRecord implements RecordInterface {
   _status: ItemStatus!
   _unpublishingScheduledAt: DateTime
   _updatedAt: DateTime!
+  address(
+    """The locale to use to fetch the field's content"""
+    locale: SiteLocale
+
+    """
+    If you want to fallback to a default translation when a translation has not been found
+    """
+    fallbackLocales: [SiteLocale!]
+  ): String
   createdAt: DateTime!
+  email(
+    """Process content as markdown"""
+    markdown: Boolean
+  ): String
   id: ItemId!
+  phone(
+    """Process content as markdown"""
+    markdown: Boolean
+  ): String
   updatedAt: DateTime!
+  workingHours(
+    """Process content as markdown"""
+    markdown: Boolean
+
+    """The locale to use to fetch the field's content"""
+    locale: SiteLocale
+
+    """
+    If you want to fallback to a default translation when a translation has not been found
+    """
+    fallbackLocales: [SiteLocale!]
+  ): String
 }
 
 """Specifies how to filter by creation datetime"""
@@ -1095,8 +1099,6 @@ type GlobalRecord implements RecordInterface {
   createdAt: DateTime!
   id: ItemId!
   logo: FileField
-  mail: String
-  phone: String
   updatedAt: DateTime!
 }
 
@@ -4051,13 +4053,6 @@ type Query {
   ): CollectionMetadata!
 
   """Returns meta information regarding a record collection"""
-  _allContactsMeta(
-    """The locale to use to fetch the field's content"""
-    locale: SiteLocale
-    filter: ContactModelFilter
-  ): CollectionMetadata!
-
-  """Returns meta information regarding a record collection"""
   _allEventsMeta(
     """The locale to use to fetch the field's content"""
     locale: SiteLocale
@@ -4135,25 +4130,6 @@ type Query {
     filter: ArticleModelFilter
     orderBy: [ArticleModelOrderBy] = [_updatedAt_DESC]
   ): [ArticleRecord!]!
-
-  """Returns a collection of records"""
-  allContacts(
-    """The locale to use to fetch the field's content"""
-    locale: SiteLocale
-
-    """
-    If you want to fallback to a default translation when a translation has not been found
-    """
-    fallbackLocales: [SiteLocale!]
-
-    """Skip the first results"""
-    skip: IntType
-
-    """Limit the number of results"""
-    first: IntType = 20
-    filter: ContactModelFilter
-    orderBy: [ContactModelOrderBy] = [_updatedAt_DESC]
-  ): [ContactRecord!]!
 
   """Returns a collection of records"""
   allEvents(
@@ -4323,7 +4299,7 @@ type Query {
     fallbackLocales: [SiteLocale!]
   ): BoxingSalonRecord
 
-  """Returns a specific record"""
+  """Returns the single instance record"""
   contact(
     """The locale to use to fetch the field's content"""
     locale: SiteLocale
@@ -4332,8 +4308,6 @@ type Query {
     If you want to fallback to a default translation when a translation has not been found
     """
     fallbackLocales: [SiteLocale!]
-    filter: ContactModelFilter
-    orderBy: [ContactModelOrderBy] = [_updatedAt_DESC]
   ): ContactRecord
 
   """Returns the single instance record"""

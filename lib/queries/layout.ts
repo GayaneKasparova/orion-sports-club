@@ -1,17 +1,23 @@
 import {graphql} from 'gql.tada';
 
-export const NAV_ITEMS_QUERY = graphql(`
-    query NavItemsQuery($locale: SiteLocale!) {
+export const LAYOUT_QUERY = graphql(`
+    query LayoutQuery($locale: SiteLocale!) {
         allNavLinks(locale: $locale) {
             openInNewTab
             hide
             url
             label
-    }}
+        }
+        global {
+            logo {
+                url
+            }
+        }
+    }
 `);
 
 // The type is automatically inferred from the query
-export type NavItems = typeof NAV_ITEMS_QUERY;
+export type Layout = typeof LAYOUT_QUERY;
 export type NavItem = {
     hide?: boolean,
     openInNewTab?: boolean

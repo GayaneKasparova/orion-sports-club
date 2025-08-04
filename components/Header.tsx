@@ -4,31 +4,23 @@ import { useState } from "react";
 import { Menu, X } from "lucide-react";
 import {Button} from "@/components/ui/button";
 import LocaleSwitcher from "@/components/LocaleSwitcher";
-import {NavItem} from "@/lib/queries/navItems";
+import {NavItem} from "@/lib/queries/layout";
 import {Locale} from "@/lib/i18n";
 import Link from "next/link";
 import {useIsMobile} from "@/hooks/use-mobile";
+import Image from "next/image";
 
 
-const Header = ({navItems, locale}: {navItems: NavItem[], locale: Locale}) => {
+const Header = ({navItems, logo, locale}: {navItems: NavItem[], logo: string, locale: Locale}) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const isMobile = useIsMobile();
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-md border-b border-border">
+    <header className={`${isMobile ? "sticky" : "fixed"} top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-md border-b border-border`}>
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <div className="flex items-center space-x-2">
-            <div className="text-2xl font-bold">
-              <span className="text-foreground">ORI</span>
-              <span className="text-primary">O</span>
-              <span className="text-foreground">N</span>
-            </div>
-            <div className="text-xs text-muted-foreground font-medium">
-              SPORTS CLUB
-            </div>
-          </div>
+          <Image src={logo} alt="Orion Sports Club" width={120} height={30} className="cursor-pointer w-[120px] h-auto" onClick={() => window.scrollTo(0, 0)}/>
 
           {/* Desktop Navigation */}
           {!isMobile && <nav className="hidden md:flex items-center space-x-8">
