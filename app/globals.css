@@ -9,6 +9,8 @@
     --popover: hsl(222.2 84% 4.9%);
     --popover-foreground: hsl(210 40% 98%);
     --primary: hsl(180 85% 50%);
+    --primary-20: hsla(180, 85%, 50%, 0.2);
+    --primary-30: hsla(180, 85%, 50%, 0.3);
     --primary-foreground: hsl(222.2 47.4% 11.2%);
     --primary-glow: hsl(180 85% 60%);
     --secondary: hsl(217.2 32.6% 17.5%);
@@ -35,6 +37,8 @@
 
     /* === Purple === */
     --purple: hsl(280 85% 60%);
+    --purple-20: hsla(280, 85%, 60%, 0.2);
+    --purple-30: hsla(280, 85%, 60%, 0.3);
     --purple-foreground: hsl(0 0% 98%);
     --purple-glow: hsl(280 85% 70%);
 
@@ -65,14 +69,16 @@
 .bg-card               { background-color: var(--card); }
 .bg-popover            { background-color: var(--popover); }
 .bg-primary            { background-color: var(--primary); }
+.bg-primary-20         { background-color: var(--primary-20); }
+.bg-primary-30         { background-color: var(--primary-30); }
 .bg-secondary          { background-color: var(--secondary); }
 .bg-muted              { background-color: var(--muted); }
 .bg-accent             { background-color: var(--accent); }
 .bg-destructive        { background-color: var(--destructive); }
 .bg-input              { background-color: var(--input); }
 .bg-purple             { background-color: var(--purple); }
-.bg-purple-20         { background-color: hsl(var(--purple) / .2); }
-.bg-purple-30         { background-color: hsl(var(--purple) / .3); }
+.bg-purple-20          { background-color: var(--purple-20); }
+.bg-purple-30          { background-color: var(--purple-30); }
 .bg-sidebar            { background-color: var(--sidebar-background); }
 .bg-sidebar-primary    { background-color: var(--sidebar-primary); }
 .bg-sidebar-accent     { background-color: var(--sidebar-accent); }
@@ -88,6 +94,7 @@
 .text-accent                 { color: var(--accent-foreground); }
 .text-destructive            { color: var(--destructive-foreground); }
 .text-input                  { color: var(--input); }
+.text-purple                 { color: var(--purple); }
 .text-purple                 { color: var(--purple); }
 .text-sidebar-primary        { color: var(--sidebar-primary); }
 .text-sidebar-accent         { color: var(--sidebar-accent); }
@@ -186,4 +193,8 @@ html {
 }
 .read-the-docs {
     color: #888;
+}
+
+.map-filter {
+    filter: grayscale(0.1) contrast(0.7) saturate(0.5) invert(0.9)
 }

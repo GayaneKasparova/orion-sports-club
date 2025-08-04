@@ -100,7 +100,7 @@ const About = () => {
                 />
                 <div className="absolute inset-0 bg-gradient-dark opacity-60 group-hover:opacity-40 transition-smooth"></div>
                 <div className="absolute top-4 right-4">
-                  <div className="w-12 h-12 bg-primary/20 backdrop-blur-sm rounded-full flex items-center justify-center group-hover:bg-primary/30 transition-smooth">
+                  <div className="w-12 h-12 bg-primary-20 backdrop-blur-sm rounded-full flex items-center justify-center group-hover:bg-primary-30 transition-smooth">
                     <facility.icon className="h-6 w-6 text-primary" />
                   </div>
                 </div>

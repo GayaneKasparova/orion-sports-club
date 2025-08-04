@@ -26,6 +26,7 @@ export default async function HomePage({params}: {
             <About />
             <Trainers />
             <Packages />
+            {/*<Map/>*/}
         </>
     )
 }

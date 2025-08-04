@@ -9,7 +9,7 @@ import { useScrollAnimation, useStaggeredAnimation } from "@/hooks/useScrollAnim
 const Packages = () => {
   const headerAnimation = useScrollAnimation();
   const packagesAnimation = useStaggeredAnimation(3, 0.2);
-  const ctaAnimation = useScrollAnimation();
+  //const ctaAnimation = useScrollAnimation();
 
   const packages = [
     {
@@ -113,7 +113,7 @@ const Packages = () => {
 
               <CardHeader className="text-center pb-4">
                 {/* Package Icon */}
-                <div className="inline-flex items-center justify-center w-16 h-16 bg-primary/20 rounded-full mb-4 group-hover:bg-primary/30 group-hover:scale-110 transition-bounce">
+                <div className="inline-flex items-center justify-center w-16 h-16 bg-primary-20 rounded-full mb-4 group-hover:bg-primary-30 group-hover:scale-110 transition-bounce">
                   <pkg.icon className="h-8 w-8 text-primary" />
                 </div>
 
@@ -138,7 +138,7 @@ const Packages = () => {
                       key={featureIndex} 
                       className="flex items-center space-x-3"
                     >
-                      <div className="shrink-0 w-5 h-5 bg-primary/20 rounded-full flex items-center justify-center">
+                      <div className="shrink-0 w-5 h-5 bg-primary-20 rounded-full flex items-center justify-center">
                         <Check className="h-3 w-3 text-primary" />
                       </div>
                       <span className="text-foreground text-sm">{feature}</span>
@@ -162,28 +162,6 @@ const Packages = () => {
           ))}
         </div>
 
-        {/* Additional Info */}
-        <div 
-          ref={ctaAnimation.ref as React.RefObject<HTMLDivElement>}
-          className={`text-center mt-16 transition-all duration-1000 ${
-            ctaAnimation.isVisible 
-              ? 'opacity-100 translate-y-0 scale-100' 
-              : 'opacity-0 translate-y-10 scale-95'
-          }`}
-        >
-          <div className="bg-card/50 backdrop-blur-sm border border-border rounded-lg p-8 max-w-2xl mx-auto">
-            <h3 className="text-2xl font-bold text-foreground mb-4">
-              Need a Custom Package?
-            </h3>
-            <p className="text-muted-foreground mb-6">
-              Contact our team to create a personalized membership package 
-              that perfectly fits your specific needs and budget.
-            </p>
-            <Button variant="outline" size="lg">
-              Contact Us
-            </Button>
-          </div>
-        </div>
       </div>
     </section>
   );

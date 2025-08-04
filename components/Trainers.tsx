@@ -89,7 +89,7 @@ const Trainers = () => {
                 
                 {/* Rating Badge */}
                 <div className="absolute top-4 right-4">
-                  <Badge className="bg-primary/20 text-primary border-primary/30 backdrop-blur-sm">
+                  <Badge className="bg-primary-20 text-primary border-primary/30 backdrop-blur-sm">
                     <Star className="h-3 w-3 mr-1 fill-current" />
                     {trainer.rating}
                   </Badge>

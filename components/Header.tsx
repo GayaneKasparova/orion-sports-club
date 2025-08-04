@@ -20,7 +20,7 @@ const Header = ({navItems, logo, locale}: {navItems: NavItem[], logo: string, lo
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <Image src={logo} alt="Orion Sports Club" width={120} height={30} className="cursor-pointer w-[120px] h-auto" onClick={() => window.scrollTo(0, 0)}/>
+          <Image src={logo} alt="Orion Sports Club" width={120} height={30} className="cursor-pointer w-[120px] h-auto" onClick={() => window.scrollTo(0, 0)} priority/>
 
           {/* Desktop Navigation */}
           {!isMobile && <nav className="hidden md:flex items-center space-x-8">
