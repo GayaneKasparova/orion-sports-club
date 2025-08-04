@@ -102,7 +102,7 @@ const Footer = () => {
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
               {contactInfo.map((info) => (
                 <div key={info.title} className="flex items-start space-x-3">
-                  <div className="flex-shrink-0 w-10 h-10 bg-primary/20 rounded-lg flex items-center justify-center mt-1">
+                  <div className="shrink-0 w-10 h-10 bg-primary/20 rounded-lg flex items-center justify-center mt-1">
                     <info.icon className="h-5 w-5 text-primary" />
                   </div>
                   <div>
