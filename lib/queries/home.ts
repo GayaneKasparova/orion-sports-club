@@ -1,27 +1,25 @@
-// src/lib/queries/home.ts
 import {graphql} from 'gql.tada';
 
 export const HOMEPAGE_QUERY = graphql(`
     query HomePageQuery($locale: SiteLocale!) {
         homePage {
-            _modelApiKey
-            aboutUsText(locale: $locale)
-            aboutUsTitle(locale: $locale)
-            bannerBtnLink
-            bannerBtnText(locale: $locale)
+            bannerGradientButtonLink
+            bannerGradientButtonText(locale: $locale)
+            bannerButtonLink
+            bannerButtonText(locale: $locale)
+            bannerText(locale: $locale)
+            bannerTitle(locale: $locale)
             bannerBackgroundImage {
-                title(locale: $locale)
-                video {
+                url
+                responsiveImage(imgixParams: { fit: crop, w: 300, h: 300, auto: format }) {
+                    sizes
+                    src
+                    width
+                    height
                     alt
-                    blurUpThumb
-                    blurhash
-                    duration
-                    framerate
-                    mp4Url
-                    thumbhash
                     title
+                    base64
                 }
-                alt
             }
         }
     }

@@ -1,0 +1,189 @@
+@import 'tailwindcss';
+
+@theme {
+    /* === Colors === */
+    --background: #020817FF;
+    --foreground: hsl(210 40% 98%);
+    --card: hsl(222.2 84% 4.9%);
+    --card-foreground: hsl(210 40% 98%);
+    --popover: hsl(222.2 84% 4.9%);
+    --popover-foreground: hsl(210 40% 98%);
+    --primary: hsl(180 85% 50%);
+    --primary-foreground: hsl(222.2 47.4% 11.2%);
+    --primary-glow: hsl(180 85% 60%);
+    --secondary: hsl(217.2 32.6% 17.5%);
+    --secondary-foreground: hsl(210 40% 98%);
+    --muted: hsl(217.2 32.6% 17.5%);
+    --muted-foreground: hsl(215 20.2% 65.1%);
+    --accent: hsl(217.2 32.6% 17.5%);
+    --accent-foreground: hsl(210 40% 98%);
+    --destructive: hsl(0 62.8% 30.6%);
+    --destructive-foreground: hsl(210 40% 98%);
+    --border: hsl(217.2 32.6% 17.5%);
+    --input: hsl(217.2 32.6% 17.5%);
+    --ring: hsl(212.7 26.8% 83.9%);
+
+    /* === Sidebar === */
+    --sidebar-background: hsl(240 5.9% 10%);
+    --sidebar-foreground: hsl(240 4.8% 95.9%);
+    --sidebar-primary: hsl(224.3 76.3% 48%);
+    --sidebar-primary-foreground: hsl(0 0% 100%);
+    --sidebar-accent: hsl(240 3.7% 15.9%);
+    --sidebar-accent-foreground: hsl(240 4.8% 95.9%);
+    --sidebar-border: hsl(240 3.7% 15.9%);
+    --sidebar-ring: hsl(217.2 91.2% 59.8%);
+
+    /* === Purple === */
+    --purple: hsl(280 85% 60%);
+    --purple-foreground: hsl(0 0% 98%);
+    --purple-glow: hsl(280 85% 70%);
+
+    /* === Radius === */
+    --radius: 0.75rem;
+
+    /* === Gradients === */
+    --gradient-primary: linear-gradient(135deg, hsl(180 85% 50%), hsl(180 85% 60%));
+    --gradient-purple: linear-gradient(135deg, hsl(280 85% 60%), hsl(280 85% 70%));
+    --gradient-dual: linear-gradient(135deg, hsl(180 85% 50%), hsl(280 85% 60%));
+    --gradient-dark: linear-gradient(135deg, hsl(220 20% 8%), hsl(220 18% 12%));
+    --gradient-hero: linear-gradient(135deg, hsl(220 20% 8%) 0%, hsl(220 18% 12%) 50%, hsl(180 50% 25%) 100%);
+
+    /* === Shadows === */
+    --shadow-glow: 0 0 40px hsl(180 85% 50% / 0.3);
+    --shadow-purple-glow: 0 0 40px hsl(280 85% 60% / 0.3);
+    --shadow-card: 0 10px 30px -5px hsl(220 20% 5% / 0.5);
+
+    /* === Transitions === */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+
+/* === Background Colors === */
+.bg-background         { background-color: var(--background); }
+.bg-foreground         { background-color: var(--foreground); }
+.bg-card               { background-color: var(--card); }
+.bg-popover            { background-color: var(--popover); }
+.bg-primary            { background-color: var(--primary); }
+.bg-secondary          { background-color: var(--secondary); }
+.bg-muted              { background-color: var(--muted); }
+.bg-accent             { background-color: var(--accent); }
+.bg-destructive        { background-color: var(--destructive); }
+.bg-input              { background-color: var(--input); }
+.bg-purple             { background-color: var(--purple); }
+.bg-purple-20         { background-color: hsl(var(--purple) / .2); }
+.bg-purple-30         { background-color: hsl(var(--purple) / .3); }
+.bg-sidebar            { background-color: var(--sidebar-background); }
+.bg-sidebar-primary    { background-color: var(--sidebar-primary); }
+.bg-sidebar-accent     { background-color: var(--sidebar-accent); }
+
+/* === Text Colors === */
+.text-background             { color: var(--background); }
+.text-foreground             { color: var(--foreground); }
+.text-card                   { color: var(--card); }
+.text-popover                { color: var(--popover); }
+.text-primary                { color: var(--primary); }
+.text-secondary              { color: var(--secondary); }
+.text-muted                  { color: var(--muted); }
+.text-accent                 { color: var(--accent-foreground); }
+.text-destructive            { color: var(--destructive-foreground); }
+.text-input                  { color: var(--input); }
+.text-purple                 { color: var(--purple); }
+.text-sidebar-primary        { color: var(--sidebar-primary); }
+.text-sidebar-accent         { color: var(--sidebar-accent); }
+.text-sidebar-border         { color: var(--sidebar-border); }
+.text-sidebar-ring           { color: var(--sidebar-ring); }
+
+/* === Border Colors === */
+.border-background           { border-color: var(--background); }
+.border-foreground           { border-color: var(--foreground); }
+.border-border               { border-color: var(--border); }
+.border-input                { border-color: var(--input); }
+.border-ring                 { border-color: var(--ring); }
+.border-primary              { border-color: var(--primary); }
+.border-secondary            { border-color: var(--secondary); }
+.border-accent               { border-color: var(--accent); }
+.border-destructive          { border-color: var(--destructive); }
+.border-purple               { border-color: var(--purple); }
+.border-sidebar              { border-color: var(--sidebar-border); }
+.border-sidebar-ring         { border-color: var(--sidebar-ring); }
+.border-sidebar-primary      { border-color: var(--sidebar-primary); }
+.border-sidebar-accent       { border-color: var(--sidebar-accent); }
+
+/* === Gradients === */
+.bg-gradient-primary         { background-image: var(--gradient-primary); }
+.bg-gradient-purple          { background-image: var(--gradient-purple); }
+.bg-gradient-dual            { background-image: var(--gradient-dual); }
+.bg-gradient-dark            { background-image: var(--gradient-dark); }
+.bg-gradient-hero            { background-image: var(--gradient-hero); }
+
+.text-gradient-primary       { background-image: var(--gradient-primary); }
+.text-gradient-purple        { background-image: var(--gradient-purple); }
+.text-gradient-dual          { background-image: var(--gradient-dual); }
+.text-gradient-dark          { background-image: var(--gradient-dark); }
+.text-gradient-hero          { background-image: var(--gradient-hero); }
+
+/* === Shadows === */
+.shadow-glow                 { box-shadow: var(--shadow-glow); }
+.shadow-purple-glow          { box-shadow: var(--shadow-purple-glow); }
+.shadow-card                 { box-shadow: var(--shadow-card); }
+
+/* === Transitions === */
+.transition-smooth           { transition: var(--transition-smooth); }
+.transition-bounce           { transition: var(--transition-bounce); }
+
+/* === Radius === */
+.rounded-radius              { border-radius: var(--radius); }
+.rounded-card                { border-radius: var(--radius); }
+
+/* === Dark Mode Helpers === */
+.dark .bg-background         { background-color: var(--background); }
+.dark .text-foreground       { color: var(--foreground); }
+.dark .border-border         { border-color: var(--border); }
+
+
+/* === Global Styles === */
+html {
+    scroll-behavior: smooth;
+}
+
+@plugin "tailwindcss-animate";
+
+/* === Layout === */
+#root {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 2rem;
+    text-align: center;
+}
+
+/* === Logo Animation === */
+.logo {
+    height: 6em;
+    padding: 1.5em;
+    will-change: filter;
+    transition: filter 300ms;
+}
+.logo:hover {
+    filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.react:hover {
+    filter: drop-shadow(0 0 2em #61dafbaa);
+}
+@keyframes logo-spin {
+    from { transform: rotate(0deg); }
+    to   { transform: rotate(360deg); }
+}
+@media (prefers-reduced-motion: no-preference) {
+    a:nth-of-type(2) .logo {
+        animation: logo-spin infinite 20s linear;
+    }
+}
+
+/* === Cards & Docs === */
+.card {
+    padding: 2em;
+}
+.read-the-docs {
+    color: #888;
+}

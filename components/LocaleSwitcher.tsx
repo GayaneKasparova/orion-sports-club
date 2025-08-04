@@ -1,7 +1,10 @@
 'use client'
 
 import {usePathname, useRouter} from 'next/navigation'
-import {Locale, SUPPORTED_LOCALES} from '../lib/i18n'
+import {languages, Locale} from '@/lib/i18n'
+import {DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger} from "@/components/ui/dropdown-menu";
+import {Button} from "@/components/ui/button";
+import {Globe} from "lucide-react";
 
 const LocaleSwitcher = ({current}: { current: Locale }) => {
     const router = useRouter()
@@ -14,17 +17,22 @@ const LocaleSwitcher = ({current}: { current: Locale }) => {
     }
 
     return (
-        <div className="flex gap-2">
-            {SUPPORTED_LOCALES.map((l) => (
-                <button
-                    key={l}
-                    onClick={() => handleSwitch(l)}
-                    className={l === current ? 'font-bold underline' : ''}
-                >
-                    {l.toUpperCase()}
-                </button>
-            ))}
-        </div>
+        <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+                <Button variant="ghost" size="sm" className="flex items-center space-x-2">
+                    <Globe className="h-4 w-4" />
+                    <span className="hidden sm:inline">{current.toUpperCase()}</span>
+                </Button>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent align="end" className="w-40">
+                {languages.map((lang) => (
+                    <DropdownMenuItem key={lang.code} className={`flex items-center space-x-2 ${lang.code === current ? 'font-bold underline' : ''}`} onClick={() => handleSwitch(lang.code as Locale)}>
+                        <span>{lang.flag}</span>
+                        <span>{lang.label}</span>
+                    </DropdownMenuItem>
+                ))}
+            </DropdownMenuContent>
+        </DropdownMenu>
     )
 }
 
